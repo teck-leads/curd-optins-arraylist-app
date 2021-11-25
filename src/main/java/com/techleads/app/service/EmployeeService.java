@@ -25,11 +25,17 @@ public class EmployeeService {
 	}
 
 	public Employee findEmployeeById(Integer id) {
-		Optional<Employee> findFirst = employees.stream().filter(emp -> emp.getId().equals(id)).findFirst();
-
-		if (findFirst.isPresent()) {
-			return findFirst.get();
+//		Optional<Employee> findFirst = employees.stream().filter(emp -> emp.getId().equals(id)).findFirst();
+//
+//		if (findFirst.isPresent()) {
+//			return findFirst.get();
+//		}
+		for(Employee emp: employees) {
+			if(emp.getId().equals(id)) {
+				return emp;
+			}
 		}
+		
 
 		return new Employee();
 
